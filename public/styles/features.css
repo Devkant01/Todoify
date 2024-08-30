@@ -1,0 +1,149 @@
+body {
+    box-sizing: border-box;
+}
+
+#feature_img {
+    margin-inline: auto;
+    display: block;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.intro {
+    width: 80%;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 4rem;
+    margin-bottom: 25px;
+}
+
+.intro h1 span {
+    text-decoration: line-through 3px solid gray;
+    color: gray;
+}
+
+.intro p {
+    margin-inline: auto;
+    width: 50%;
+    font-size: 1.3rem;
+    color: gray;
+    margin-bottom: 45px;
+}
+
+#features {
+    height: max-content;
+    margin-top: 100px;
+    display: flex;
+    width: 80%;
+    margin-inline: auto;
+    position: relative;
+}
+
+.fixed_block {
+    width: 50%;
+    position: sticky;
+    left: 0;
+    top: 0;
+
+}
+
+.scrolling_block {
+    width: 50%;
+}
+
+.scrolling_block h1 {
+    width: 80%;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.scrolling_block p {
+    width: 90%;
+    font-size: 1.3rem;
+    color: gray;
+    margin-bottom: 25px;
+}
+
+.scrolling_block ul {
+    list-style-type: none;
+    font-size: 1.3rem;
+}
+
+.scrolling_block ul li {
+    background-color: rgba(128, 128, 128, 0.1);
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: gray;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scrolling_block ul li .h1 {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.scrolling_block ul li .p1 {
+    display: none;
+
+}
+
+.scrolling_block ul li:hover {
+    .p1 {
+        display: inline;
+    }
+}
+
+.testimonial {
+    margin-top: 96px;
+}
+
+.testimonial p {
+    color: black;
+}
+
+.details {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.details .img {
+    width: 10%;
+    border: 1px solid gray;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.details .img img {
+    height: 60px;
+    position: relative;
+    top: 4px;
+}
+
+.details .info {
+    width: 70%;
+}
+
+.details .info h1 {
+    color: black;
+    font-size: 1.3rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.info p {
+    clear: gray;
+    font-size: 1.3rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}

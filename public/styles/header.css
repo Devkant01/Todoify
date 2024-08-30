@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+#todoLogo {
+    color: rgb(227, 68, 50);
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+}
+
+.menu {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    list-style-type: none;
+}
+
+.separator{
+    height: 22px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(103, 101, 101, 0.3);
+}
+
+.menu li {
+    border-radius: 10px;
+    padding-block: 5px;
+}
+
+.menu li:hover {
+    background-color: rgba(103, 101, 101, 0.1);
+}
+
+.signup{
+    border-radius: 12px;
+    background-color: rgb(227, 68, 50);
+    padding-inline: 20px !important;
+}
+
+.signup a{
+    color: white !important;
+}
+
+.signup:hover{
+    background-color: rgb(176, 35, 20) !important;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    padding: 7px 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.2s all ease-in-out;
+    color: black;
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+.menu-icon {
+    display: none;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked~.menu {
+    transform: scale(1, 1);
+}
+
+@media only screen and (max-width: 950px) {
+    .menu {
+        flex-direction: column;
+        background-color: white;
+        align-items: center;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        z-index: 1;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 500px 60px;
+    }
+
+    .menu a {
+        width: 80%;
+        margin-left: 12px;
+    }
+
+    .menu li {
+        margin-bottom: 10px;
+        width: 80%;
+        border-radius: 12px;
+        padding-block: 10px;
+    }
+
+    .separator{
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        color: black;
+        font-size: 28px;
+        cursor: pointer;
+    }
+}

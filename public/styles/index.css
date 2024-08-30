@@ -1,0 +1,50 @@
+#heroSection {
+    width: 80%;
+    height: max-content;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 30px;
+}
+
+.description {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-self: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.3rem;
+    word-break: keep-all;
+    overflow-wrap: nowrap;
+    color: gray;
+}
+
+.description h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+button{
+    margin-top: 20px;
+    align-self: self-start;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    padding: 20px 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(227, 68, 50);
+    box-shadow: 0px 8px 2px rgba(227, 68, 50, 0.5);
+}
+
+button:hover{
+    transform: translateY(5px);
+    box-shadow: 0px 4px 2px rgba(227, 68, 50, 0.5);
+}
+
+#heroSection img {
+    width: 50%;
+}
