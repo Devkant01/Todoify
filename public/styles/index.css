@@ -3,9 +3,14 @@
     height: max-content;
     margin-inline: auto;
     display: flex;
+    flex-flow: row-reverse;
     justify-content: center;
     align-items: center;
     padding: 90px 30px;
+}
+
+#heroSection img {
+    width: 50%;
 }
 
 .description {
@@ -27,7 +32,7 @@
     color: black;
 }
 
-button{
+button {
     margin-top: 20px;
     align-self: self-start;
     font-weight: 600;
@@ -40,11 +45,31 @@ button{
     box-shadow: 0px 8px 2px rgba(227, 68, 50, 0.5);
 }
 
-button:hover{
+button:hover {
     transform: translateY(5px);
     box-shadow: 0px 4px 2px rgba(227, 68, 50, 0.5);
 }
 
-#heroSection img {
-    width: 50%;
+
+@media screen and (max-width: 380px) {
+    #heroSection {
+        flex-flow: column nowrap;
+    }
+
+    #heroSection img {
+        width: 90%;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .description h1 {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+
+    button {
+        margin-top: 40px;
+    }
 }

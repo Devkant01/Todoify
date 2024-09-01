@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
     background-color: white;
 }
 
@@ -47,7 +47,7 @@ nav {
     list-style-type: none;
 }
 
-.separator{
+.separator {
     height: 22px;
     border-radius: 10px;
     border: 1.5px solid rgba(103, 101, 101, 0.3);
@@ -62,17 +62,17 @@ nav {
     background-color: rgba(103, 101, 101, 0.1);
 }
 
-.signup{
+.signup {
     border-radius: 12px;
     background-color: rgb(227, 68, 50);
     padding-inline: 20px !important;
 }
 
-.signup a{
+.signup a {
     color: white !important;
 }
 
-.signup:hover{
+.signup:hover {
     background-color: rgb(176, 35, 20) !important;
 }
 
@@ -116,7 +116,7 @@ nav {
         transform: scale(1, 0);
         transform-origin: top;
         transition: transform 0.3s ease-in-out;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 500px 60px;
+        /* box-shadow: rgba(0, 0, 0, 0.05) 0px 500px 60px; */
     }
 
     .menu a {
@@ -131,7 +131,7 @@ nav {
         padding-block: 10px;
     }
 
-    .separator{
+    .separator {
         display: none;
     }
 

@@ -5,6 +5,7 @@ const { addTodo } = require("../controllers/addTodo");
 const { revealTodos } = require("../controllers/revealTodos");
 const { updateTodo } = require("../controllers/updateTodo");
 const { deleteTodo } = require("../controllers/deleteTodo");
+const { searchTodo } = require("../controllers/searchTodo");
 const { completedTodos } = require("../controllers/completedTodos");
 const { todosAdded } = require("../middleware/todosAuth");
 
@@ -17,4 +18,5 @@ router.get('/todos', revealTodos);
 router.get('/completed', completedTodos);
 router.put('/todo/:id', updateTodo);
 router.delete('/todo/:id', deleteTodo);
+router.get('/todo/name', searchTodo);
 module.exports = router;

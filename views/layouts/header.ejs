@@ -9,26 +9,77 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/auth.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <div id="todoLogo">
+            <a id="todoLogo" href="/" style="text-decoration: none;">
                 <img src="/images/logo-icon.png" alt="logo.ong" width="40px">
                 <h1>todoify</h1>
-            </div>
+            </a>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/features">Features</a></li>
                 <div class="separator"></div>
-                <li><a href="#">Log in</a></li>
-                <li class="signup"><a href="#" >Star for free</a></li>
+                <li><a href="#" onclick="loginFun()">Log in</a></li>
+                <li class="signup"><a href="#" onclick="signupFun()">Star for free</a></li>
             </ul>
         </nav>
     </header>
+    <div class="wrapper">
+        <div class="form-box login">
+            <div class="cross">&times;</div>
+            <h2 class="title animation">Login</h2>
+            <form action="#">
+                <div class="input-box animation">
+                    <input type="text" required>
+                    <label for="">Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-box animation" >
+                    <input type="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn animation">Login</button>
+                <div class="linkTxt animation">
+                    <p>Don't have an account? <a class="register-link" onclick="signupFun()" style="cursor: pointer;">Sign Up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register">
+            <div class="cross">&times;</div>
+            <h2 class="title animation">Sign Up</h2>
+            <form action="#">
+                <div class="input-box animation" >
+                    <input type="text" required>
+                    <label for="">Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box animation" >
+                    <input type="email" required>
+                    <label for="">Email</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box animation" >
+                    <input type="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn animation">Sign Up</button>
+                <div class="linkTxt animation">
+                    <p>Already have an account? <a class="login-link" onclick="loginFun()" style="cursor: pointer;">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/scripts/script.js"></script>
 </body>
 
 </html>

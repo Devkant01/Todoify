@@ -142,8 +142,74 @@ body {
 }
 
 .info p {
-    clear: gray;
+    color: gray;
     font-size: 1.3rem;
     margin-bottom: 0px;
     padding-bottom: 0px;
+}
+
+@media screen and (max-width: 380px) {
+    #feature_img {
+        margin-top: 80px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .intro h1 {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+
+    .intro h1 span {
+        display: block;
+    }
+
+    .intro p {
+        width: 100%;
+        line-height: 2rem;
+    }
+
+    #features {
+        flex-flow: column nowrap;
+        width: 90%;
+        margin-inline: auto;
+        position: relative;
+    }
+
+    .fixed_block {
+        width: 100%;
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .scrolling_block {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .scrolling_block h1 {
+        width: 90%;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .testimonial {
+        margin-top: 50px;
+    }
+
+    .details {
+        margin-inline: auto;
+    }
+
+    .details .img {
+        width: 20%;
+    }
+
+    .details .info h1 {
+        font-size: 1.2rem;
+    }
+
+    .info p {
+        font-size: 1rem;
+    }
 }

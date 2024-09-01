@@ -12,13 +12,21 @@ app.set("view engine", "ejs");
 app.use('/todoist', rootRouter);
 
 app.get('/', (req, res) => {
-    res.render("home");
+    res.render("main");
+    // res.send("Good to go");
 })
 
-app.get('/features', (req, res)=>{
+app.get('/features', (req, res) => {
     res.render("features");
 })
 
+app.get('/login', (req, res) => {
+    res.render("login");
+})
+app.get('/signup', (req, res) => {
+    res.render("signup");
+})
+
 app.listen(port, () => {
-    console.log(`Server is active on localhost://${port}`);
- })
+    console.log(`Server is active on localhost:${port}`);
+})

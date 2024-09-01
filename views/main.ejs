@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoify | A To-Do List to Organize Your Work & Life</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
+
+<body>
+    <button class="controller outside">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path fill="currentColor" fill-rule="evenodd"
+                d="M19 4.001H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-12a2 2 0 0 0-2-2Zm-15 2a1 1 0 0 1 1-1h4v14H5a1 1 0 0 1-1-1v-12Zm6 13h9a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1h-9v14Z"
+                clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div id="sidebar">
+        <button class="controller inside">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path fill="currentColor" fill-rule="evenodd"
+                    d="M19 4.001H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-12a2 2 0 0 0-2-2Zm-15 2a1 1 0 0 1 1-1h4v14H5a1 1 0 0 1-1-1v-12Zm6 13h9a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1h-9v14Z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+        <div class="content">
+            <ul>
+                <li class="user">
+                    <a>
+                        <span class="icon">D</span>
+                        <span class="text">Hi, <span>Devkant</span></span>
+                    </a>
+                </li>
+                <li onclick="showAdderFun()">
+                    <a>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11Zm-.711-16.5a.75.75 0 1 1 1.5 0v4.789H17.5a.75.75 0 0 1 0 1.5h-4.711V17.5a.75.75 0 0 1-1.5 0V12.79H6.5a.75.75 0 1 1 0-1.5h4.789V6.5Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                        <span class="text">Add task</span>
+                    </a>
+                </li>
+                <li class="searchtodo">
+                    <a>
+                        <span aria-hidden="true" class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M16.29 15.584a7 7 0 1 0-.707.707l3.563 3.563a.5.5 0 0 0 .708-.707l-3.563-3.563ZM11 17a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                        <span class="text">Search</span>
+                    </a>
+                </li>
+                <li class="revealtodo">
+                    <a>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M8.062 4h7.876a2 2 0 0 1 1.94 1.515l2.062 8.246c.04.159.06.322.06.486V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3.754a2 2 0 0 1 .06-.485L6.12 5.515A2 2 0 0 1 8.061 4Zm0 1a1 1 0 0 0-.97.758L5.03 14.004h4.78a.5.5 0 0 1 .44.496 1.75 1.75 0 1 0 3.5 0 .5.5 0 0 1 .44-.496h4.78L16.91 5.758a1 1 0 0 0-.97-.758H8.061Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                        <span class="text">Todos</span>
+                        <div class="count">X</div>
+                    </a>
+                </li>
+                <li class="todaytodos">
+                    <a>
+                        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24">
+                                <g fill="currentColor" fill-rule="evenodd">
+                                    <path fill-rule="nonzero"
+                                        d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6zm1 3h10a.5.5 0 1 1 0 1H7a.5.5 0 0 1 0-1z">
+                                    </path><text
+                                        font-family="-apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+                                        font-size="9" transform="translate(4 2)" font-weight="500">
+                                        <tspan x="8" y="15" text-anchor="middle">01</tspan>
+                                    </text>
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="text">Today</span>
+                        <div class="count">X</div>
+                    </a>
+                </li>
+                <li class="compltedtodo">
+                    <a>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6Zm10 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm9-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM7 8a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H7Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                        <span class="text">Completed todos</span>
+                        <div class="count">X</div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="logout">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
+                        <g fill="none" fill-rule="evenodd">
+                            <path stroke="currentColor"
+                                d="M6.5 8.3V5.63c0-1.17.9-2.13 2-2.13h7c1.1 0 2 .95 2 2.13v11.74c0 1.17-.9 2.13-2 2.13h-7c-1.1 0-2-.95-2-2.13V14.7">
+                            </path>
+                            <path fill="currentColor"
+                                d="m12.8 11-2.15-2.15a.5.5 0 1 1 .7-.7L14 10.79a1 1 0 0 1 0 1.42l-2.65 2.64a.5.5 0 0 1-.7-.7L12.79 12H4.5a.5.5 0 0 1 0-1h8.3z">
+                            </path>
+                        </g>
+                    </svg>
+                </span>
+                <span>Log out</span>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="title">Todos</div>
+            <ul class="todos">
+                <li>
+                    <div class="todo_update" onclick="deleteTodo()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="tb7nk6f">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.5056 9.00958C16.2128 8.71668 15.7379 8.71668 15.445 9.00958L10.6715 13.7831L8.72649 11.8381C8.43359 11.5452 7.95872 11.5452 7.66583 11.8381C7.37294 12.1309 7.37293 12.6058 7.66583 12.8987L10.1407 15.3736C10.297 15.5299 10.5051 15.6028 10.7097 15.5923C10.8889 15.5833 11.0655 15.5104 11.2023 15.3735L16.5056 10.0702C16.7985 9.77735 16.7985 9.30247 16.5056 9.00958Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="todo_container">
+                        <h4 class="todo_title">testing 1</h4>
+                        <p class="todo_description">description here</p>
+                        <p class="todo_created_date">02 Nov</p>
+                    </div>
+                    <div class="toDelete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            aria-hidden="true">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <rect width="14" height="1" x="5" y="6" fill="currentColor" rx="0.5"></rect>
+                                <path fill="currentColor" d="M10 9h1v8h-1V9zm3 0h1v8h-1V9z"></path>
+                                <path stroke="currentColor"
+                                    d="M17.5 6.5h-11V18A1.5 1.5 0 0 0 8 19.5h8a1.5 1.5 0 0 0 1.5-1.5V6.5zm-9 0h7V5A1.5 1.5 0 0 0 14 3.5h-4A1.5 1.5 0 0 0 8.5 5v1.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo_update">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="tb7nk6f">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.5056 9.00958C16.2128 8.71668 15.7379 8.71668 15.445 9.00958L10.6715 13.7831L8.72649 11.8381C8.43359 11.5452 7.95872 11.5452 7.66583 11.8381C7.37294 12.1309 7.37293 12.6058 7.66583 12.8987L10.1407 15.3736C10.297 15.5299 10.5051 15.6028 10.7097 15.5923C10.8889 15.5833 11.0655 15.5104 11.2023 15.3735L16.5056 10.0702C16.7985 9.77735 16.7985 9.30247 16.5056 9.00958Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="todo_container">
+                        <h4 class="todos_title">testing 1</h4>
+                        <p class="todo_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+                            consequatur nam tempore quidem est beatae, voluptas a aut ipsam officia debitis ab
+                            reprehenderit asperiores accusamus perspiciatis blanditiis molestiae doloremque suscipit
+                            dicta veritatis neque. Cumque minus esse ut eum ipsa. Dicta!</p>
+                        <p class="todo_created_date">02 Nov</p>
+                    </div>
+                    <div class="toDelete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            aria-hidden="true">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <rect width="14" height="1" x="5" y="6" fill="currentColor" rx="0.5"></rect>
+                                <path fill="currentColor" d="M10 9h1v8h-1V9zm3 0h1v8h-1V9z"></path>
+                                <path stroke="currentColor"
+                                    d="M17.5 6.5h-11V18A1.5 1.5 0 0 0 8 19.5h8a1.5 1.5 0 0 0 1.5-1.5V6.5zm-9 0h7V5A1.5 1.5 0 0 0 14 3.5h-4A1.5 1.5 0 0 0 8.5 5v1.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo_update">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="tb7nk6f">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.5056 9.00958C16.2128 8.71668 15.7379 8.71668 15.445 9.00958L10.6715 13.7831L8.72649 11.8381C8.43359 11.5452 7.95872 11.5452 7.66583 11.8381C7.37294 12.1309 7.37293 12.6058 7.66583 12.8987L10.1407 15.3736C10.297 15.5299 10.5051 15.6028 10.7097 15.5923C10.8889 15.5833 11.0655 15.5104 11.2023 15.3735L16.5056 10.0702C16.7985 9.77735 16.7985 9.30247 16.5056 9.00958Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="todo_container">
+                        <h4 class="todos_title">testing 1</h4>
+                        <p class="todo_description"></p>
+                        <p class="todo_created_date">02 Nov</p>
+                    </div>
+                    <div class="toDelete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            aria-hidden="true">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <rect width="14" height="1" x="5" y="6" fill="currentColor" rx="0.5"></rect>
+                                <path fill="currentColor" d="M10 9h1v8h-1V9zm3 0h1v8h-1V9z"></path>
+                                <path stroke="currentColor"
+                                    d="M17.5 6.5h-11V18A1.5 1.5 0 0 0 8 19.5h8a1.5 1.5 0 0 0 1.5-1.5V6.5zm-9 0h7V5A1.5 1.5 0 0 0 14 3.5h-4A1.5 1.5 0 0 0 8.5 5v1.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </li>
+            </ul>
+            <div class="addTodo" onclick="showAdderFun()">
+                <a>
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11Zm-.711-16.5a.75.75 0 1 1 1.5 0v4.789H17.5a.75.75 0 0 1 0 1.5h-4.711V17.5a.75.75 0 0 1-1.5 0V12.79H6.5a.75.75 0 1 1 0-1.5h4.789V6.5Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <span class="text">Add task</span>
+                </a>
+            </div>
+            <div class="showAdder">
+                <div class="adderLayout">
+                    <input type="text" name="title" id="title" required placeholder="todo title">
+                    <input type="text" name="description" id="description" placeholder="todo description">
+                    <div class="break"></div>
+                    <div class="buttons">
+                        <button class="btn1">cancel</button>
+                        <button class="btn2" type="submit">Add todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/scripts/main.js"></script>
+</body>
+
+</html>
