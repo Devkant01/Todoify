@@ -6,4 +6,7 @@ const router = express.Router();
 router.use("/user", authRouter);
 router.use("/todos", crudRouter);
 
+router.get("/", (req, res) => {
+  res.render("main");
+});
 module.exports = router;

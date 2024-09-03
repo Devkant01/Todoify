@@ -7,9 +7,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => { res.send("Hello users"); });
 
-router.get('/login', loginValidation, checkUser, loginAuth);
+router.post('/login', loginValidation, checkUser, loginAuth);
 
 router.post('/signup', signupValidation, createUser, signupAuth);
-
 
 module.exports = router;
