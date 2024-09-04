@@ -3,14 +3,18 @@ const { userModel } = require("../models/userModel");
 const { jwt_secret_key } = require("../config/config");
 
 async function signupAuth(req, res, next) {
-    const { username, email, password } = req.body;
-    const user = await userModel.findOne({ username });
-    const token = jwt.sign({ userId: user._id, username }, jwt_secret_key);
-    res.status(201).json({
-        msg: "User created",
-        token: token
-    })
-    next();
+    try {
+        const { username, email, password } = req.body;
+        const user = await userModel.findOne({ username });
+        const token = jwt.sign({ userId: user._id, username }, jwt_secret_key);
+        res.status(201).json({
+            msg: "User created",
+            token: token
+        })
+        next();
+    } catch (e) {
+        res.render("error", { title: "Internal Server Error", statusCode: 500, message: "Internal Server Error", description: "An unexpected error occurred on our server. Please try again by reloading the page or contact support if the issue persists." })
+    }
 }
 
 async function loginAuth(req, res, next) {
@@ -26,7 +30,7 @@ async function loginAuth(req, res, next) {
         res.redirect('/todoify');
         next();
     } catch (e) {
-        res.send("Something wrong happened")
+        res.render("error", { title: "Internal Server Error", statusCode: 500, message: "Internal Server Error", description: "An unexpected error occurred on our server. Please try again by reloading the page or contact support if the issue persists." })
     }
 
 }

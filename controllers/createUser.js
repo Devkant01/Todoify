@@ -4,9 +4,7 @@ async function createUser(req, res, next) {
     const { username, email, password } = req.body;
     const userExists = await userModel.findOne({ username });
     if (userExists) {
-        return res.status(409).json({
-            msg: "User already exists"
-        })
+        return res.render("error", { title: "Conflict", statusCode: 409, message: "User Already Exists", description: "The username you entered is already taken. Please try logging in or use a different username to sign up." })
     }
     const create = await userModel.create({
         username,

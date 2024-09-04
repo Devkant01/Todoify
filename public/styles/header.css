@@ -60,6 +60,7 @@ nav {
 
 .menu li:hover {
     background-color: rgba(103, 101, 101, 0.1);
+    cursor: pointer;
 }
 
 .signup {

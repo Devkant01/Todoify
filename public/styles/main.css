@@ -322,6 +322,70 @@ main .container .showAdder {
     }
 }
 
+/* for error page */
+#error {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error .container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error .container .title {
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url("/images/images.jpeg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#error .container .details {
+    font-weight: bolder;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin-block-end: 5px;
+}
+
+/* #error .container .details .sCode{} */
+/* #error .container .details .msg{} */
+#error .container .description {
+    width: 50%;
+    color: gray;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#error .container button {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(227, 68, 50);
+    box-shadow: 0px 8px 2px rgba(227, 68, 50, 0.5); 
+}
+
+#error .container button:hover {
+    transform: translateY(5px);
+    box-shadow: 0px 4px 2px rgba(227, 68, 50, 0.5);
+}
+
+#error .container button a {
+    color: white;
+    text-decoration: none;
+}
+
 /* 
 rgb(227, 68, 50)
 rgb(176, 35, 20)

@@ -13,9 +13,7 @@ function signupValidation(req, res, next) {
         signupSchema.parse({ username, email, password });
         next();
     } catch (e) {
-        res.status(400).json({
-            msg: "Input error"
-        })
+        res.render("error", { title: "Validation Error", statusCode: 400, message: "Bad Request", description: "The username and password must be strings with a minimum length of 3 characters.The email must be at least 6 characters long." })
     }
 }
 
@@ -32,9 +30,7 @@ function loginValidation(req, res, next) {
         loginSchema.parse({ username, password });
         next();
     } catch (e) {
-        res.status(400).json({
-            msg: "Input error",
-        })
+        res.render("error", { title: "Validation Error", statusCode: 400, message: "Bad Request", description: "The username and password must be strings with a minimum length of 3 characters."})
     }
 }
 

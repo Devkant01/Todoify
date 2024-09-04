@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%> | Todoify
+    </title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <div id="error">
+        <div class="container">
+            <div class="title">Oops!</div>
+            <div class="details">
+                <% if(typeof statusCode !=='undefined' ){ %>
+                    <span class="statusCode">
+                        <%= statusCode %> -
+                    </span>
+                    <%}%>
+                        <% if(typeof message !=='undefined' ){ %>
+                            <span class="message">
+                                <%= message %>
+                            </span>
+                            <%}%>
+            </div>
+            <% if(typeof description !=='undefined' ){ %>
+                <div class="description"><%= description %></div>
+                <%}%>
+                    <button type="button"><a href="/">GO TO HOMEPAGE</a></button>
+        </div>
+    </div>
+</body>
+
+</html>
