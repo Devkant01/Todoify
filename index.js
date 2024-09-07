@@ -1,11 +1,18 @@
 const express = require("express");
+const session = require("express-session");
 require("dotenv").config();
 
 const rootRouter = require("./routes/index");
+const { session_secret } = require("./config/config")
 
 const app = express();
 const port = 3000;
 
+app.use(session({
+    secret: session_secret,
+    resave: false,
+    saveUninitialized: true
+}))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(express.static("./public"));

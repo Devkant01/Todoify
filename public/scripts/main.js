@@ -1,3 +1,5 @@
+history.pushState(null, null, '/todoify');
+
 const sidebarOpen = document.querySelector(".outside");
 const sidebarClose = document.querySelector(".inside");
 const sidebar = document.querySelector("#sidebar");

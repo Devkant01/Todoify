@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todoify | A To-Do List to Organize Your Work & Life</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/auth.css">
 </head>
@@ -40,13 +37,14 @@
                     <label for="username">Username</label>
                 </div>
 
-                <div class="input-box animation" >
+                <div class="input-box animation">
                     <input type="password" id="password" name="password" required>
                     <label for="password">Password</label>
                 </div>
                 <button type="submit" class="btn animation">Login</button>
                 <div class="linkTxt animation">
-                    <p>Don't have an account? <a class="register-link" onclick="signupFun()" style="cursor: pointer;">Sign Up</a>
+                    <p>Don't have an account? <a class="register-link" onclick="signupFun()"
+                            style="cursor: pointer;">Sign Up</a>
                     </p>
                 </div>
             </form>
@@ -55,21 +53,22 @@
             <div class="cross" onclick="backToCalled()">&times;</div>
             <h2 class="title animation">Sign Up</h2>
             <form action="/todoify/user/signup" method="post">
-                <div class="input-box animation" >
+                <div class="input-box animation">
                     <input type="text" id="username" name="username" required>
                     <label for="username">Username</label>
                 </div>
-                <div class="input-box animation" >
+                <div class="input-box animation">
                     <input type="email" id="email" name="email" required>
                     <label for="email">Email</label>
                 </div>
-                <div class="input-box animation" >
+                <div class="input-box animation">
                     <input type="password" id="password" name="password" required>
                     <label for="password">Password</label>
                 </div>
                 <button type="submit" class="btn animation">Sign Up</button>
                 <div class="linkTxt animation">
-                    <p>Already have an account? <a class="login-link" onclick="loginFun()" style="cursor: pointer;">Login</a></p>
+                    <p>Already have an account? <a class="login-link" onclick="loginFun()"
+                            style="cursor: pointer;">Login</a></p>
                 </div>
             </form>
         </div>
