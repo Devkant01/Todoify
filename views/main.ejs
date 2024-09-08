@@ -85,8 +85,9 @@
                         <span class="text">Todos</span>
                         <div class="count">
                             <% if(typeof totalCount !=='undefined') {%>
-                                        <%= totalCount%>
-                                            <%}%>
+                                <%= totalCount%>
+                            <%}%>
+                        </div>
                     </a>
                 </li>
                 <li class="todaytodos">
@@ -104,7 +105,11 @@
                             </svg>
                         </span>
                         <span class="text">Today</span>
-                        <div class="count">X</div>
+                        <div class="count">
+                            <% if(typeof todayCount !=='undefined' ) {%>
+                                <%= todayCount%>
+                            <%}%>
+                        </div>
                     </a>
                 </li>
                 <li class="compltedtodo">
@@ -121,13 +126,13 @@
                         <div class="count">
                             <% if(typeof completedCount !=='undefined' ) {%>
                                 <%= completedCount%>
-                                    <%}%>
+                             <%}%>
                         </div>
                     </a>
                 </li>
             </ul>
 
-            <div class="logout">
+            <a href="/" class="logout">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
                         <g fill="none" fill-rule="evenodd">
@@ -141,7 +146,7 @@
                     </svg>
                 </span>
                 <span>Log out</span>
-            </div>
+            </a>
         </div>
     </div>
     <main>
@@ -200,25 +205,8 @@
                 </div>
             </div>
         </div>
-        <!-- hidden form for sending token to backend -->
-         <form id="tokenForm" action="/todoify" method="POST" style="display: none;">
-            <input type="hidden" id="tokenInput" name="authorization" value="">
-         </form>
+        
     </main>
-    <script>
-        var token = "<%= typeof token !== 'undefined' ? token : '' %>";
-        if (!token) {
-            token = localStorage.getItem('authorization');
-        }
-        localStorage.setItem('authorization', token);
-        console.log('user Token:', localStorage.getItem('authorization'));
-        if (token && !sessionStorage.getItem('tokenSent')) {
-                document.getElementById('tokenInput').value = token;
-                document.getElementById('tokenForm').submit();
-                sessionStorage.setItem('tokenSent', 'true');
-            }
-    </script>
-
     <script src="/scripts/main.js"></script>
 </body>
 
