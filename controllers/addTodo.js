@@ -4,8 +4,7 @@ const { todosModel } = require("../models/todosModel");
 
 async function addTodo(req, res, next) {
     const { title, description } = req.body;
-    const str = req.header("authorization");
-    const token = str.split(" ")[1];
+    const token = req.session.token;
     try {
         const user = jwt.verify(token, jwt_secret_key);
         const todo = await todosModel.create({
@@ -16,9 +15,7 @@ async function addTodo(req, res, next) {
         todo.save();
         next();
     } catch (e) {
-        res.status(400).json({
-            msg: "wrong token"
-        })
+        res.render("error", { title: "Invalid token", statusCode: 400, message: "Invalid token", description: "Please log in again to continue" });
     }
 }
 

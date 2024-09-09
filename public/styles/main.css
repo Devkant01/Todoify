@@ -26,11 +26,12 @@ html {
 
 .outside {
     margin-top: 10px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 9;
     /* margin-left: 5px; */
-}
-
-.controller:hover {
-    text-decoration: underline;
 }
 
 #sidebar {
@@ -129,10 +130,11 @@ html {
     gap: 12px;
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 main {
+    height: max-content;
     width: 90%;
     transition: all 0.5s;
     position: relative;
@@ -176,6 +178,15 @@ main .container ul li {
     border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+.noTodoFound {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    color: gray;
+    text-align: center;
+    padding-block: 20px;
+}
+
 main .container ul li .todo_update {
     border: 1px solid rgba(128, 128, 128, 0.5);
     border-radius: 50%;
@@ -185,13 +196,18 @@ main .container ul li .todo_update {
     height: 24px;
 }
 
-main .container ul li .todo_update svg {
+main .container ul li .todo_update .completed {
+    opacity: 1;
+    color: green;
+}
+
+main .container ul li .todo_update .pending {
     opacity: 0;
+    color: red;
 }
 
 main .container ul li .todo_update:hover svg {
     opacity: 1;
-    color: green;
 }
 
 main .container ul li .todo_container {
@@ -214,6 +230,9 @@ main .container ul li .todo_container .todo_created_date {
     margin-top: 8px;
     margin-bottom: 2px;
     font-size: 0.7rem;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(120, 108, 120);
 }
 
 main .container ul li .toDelete {
@@ -322,7 +341,56 @@ main .container .showAdder {
     .content ul li a {
         color: white;
     }
+
+    .logout {
+        color: white;
+    }
 }
+
+/* custom-alert start*/
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color:rgb(227, 68, 50);
+    /* Red background for alert */
+    color: white;
+    /* White text */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /* Make sure it appears on top */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.custom-alert button {
+    display: inline-block;
+    background-color: #fff;
+    border: none;
+    color: rgb(176, 35, 20);
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-inline: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.custom-alert button:hover {
+    background-color: #ddd;
+}
+
+#alertMessage {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+/* custom-alert ends */
+
 
 /* for error page */
 #error {
@@ -371,21 +439,24 @@ main .container .showAdder {
     margin-top: 20px;
     font-weight: 400;
     font-size: 1.5rem;
-    padding: 15px 15px;
     border: none;
-    border-radius: 12px;
-    background-color: rgb(227, 68, 50);
-    box-shadow: 0px 8px 2px rgba(227, 68, 50, 0.5); 
-}
-
-#error .container button:hover {
-    transform: translateY(5px);
-    box-shadow: 0px 4px 2px rgba(227, 68, 50, 0.5);
 }
 
 #error .container button a {
+    background-color: rgb(227, 68, 50);
+    border-radius: 12px;
+    padding: 15px 15px;
     color: white;
     text-decoration: none;
+    box-shadow: 0px 8px 2px rgba(227, 68, 50, 0.5);
+}
+
+#error .container button a:hover {
+    box-shadow: 0px 4px 2px rgba(227, 68, 50, 0.5);
+}
+
+#error .container button:hover {
+    transform: translateY(4px);
 }
 
 /* 

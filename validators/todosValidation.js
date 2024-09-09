@@ -11,9 +11,7 @@ async function todosValidation(req, res, next) {
         todosSchema.parse({ title, description });
         next();
     } catch (e) {
-        res.status(400).json({
-            msg: "invalid input"
-        })
+        res.render("error", { title: "Invalid input", statusCode: 400, message: "Invalid input", description: "Please enter a valid title and description" });
     }
 }
 

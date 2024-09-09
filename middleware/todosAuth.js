@@ -5,24 +5,13 @@ const { todosModel } = require("../models/todosModel");
 async function todosAdded(req, res, next) {
     try {
         const title = req.body.title;
-        const str = req.headers.authorization;
-        const token = str.split(" ")[1];
+        const token = req.session.token;
         const user = jwt.verify(token, jwt_secret_key);
-        const todo = await todosModel.findOne({ userId: user.userId, title });
-        res.status(201).json({
-            msg: "todo created",
-            todo: {
-                _id: todo._id,
-                title: todo.title,
-                description: todo.description,
-                completed: todo.completed
-            }
-        });
+        await todosModel.findOne({ userId: user.userId, title });
+        res.redirect("/todoify");
         next();
     } catch (error) {
-        res.status(500).json({
-            msg: "Internal server error"
-        });
+        res.render("error", { title: "Todo already exists", statusCode: 400, message: "Todo already exists", description: "Please enter a different todo" });
     }
 }
 

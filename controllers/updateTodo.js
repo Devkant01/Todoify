@@ -2,6 +2,7 @@ const { todosModel } = require("../models/todosModel");
 
 async function updateTodo(req, res, next) {
     const id = req.params.id;
+    console.log(id);
     try {
         const todoExist = await todosModel.findOne({ _id: id });
         await todosModel.updateOne({ _id: id },

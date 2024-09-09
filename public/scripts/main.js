@@ -7,6 +7,7 @@ const main = document.querySelector("main");
 const addTodo = document.querySelector(".addTodo");
 const showAdder = document.querySelector(".showAdder");
 const cancelTodo = document.querySelector(".btn1");
+const updateTodo = document.querySelector(".todo_update");
 
 sidebarClose.addEventListener('click', () => {
     sidebar.style.left = "-100%";
@@ -32,3 +33,90 @@ cancelTodo.addEventListener('click', () => {
     showAdder.style.display = "none";
     addTodo.style.display = "block";
 })
+
+function todoStatus() {
+    const status = document.querySelector("#todoStatus").value;
+    if (status) {
+        updateTodo.style.borderColor = "green";
+    }
+    else {
+        updateTodo.style.borderColor = "red";
+    }
+};
+
+// for custom-alert 
+function showAlert(message) {
+    return new Promise((res, rej) => {
+        const alertBox = document.getElementById('customAlert');
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.innerHTML = message;  // Set the alert message
+        alertBox.style.display = 'block';  // Show the alert box
+        window.resolveConfirm = function (response) {
+            alertBox.style.display = 'none';
+            res(response);
+        }
+    })
+}
+
+function updateTodoStatus(form) {
+    const todoId = form.querySelector("input[name='todoId']").value;  // Select the todoId within this form
+    showAlert("Are you sure you want to update this todo?")
+        .then(res => {
+            if (!res) {
+                return;
+            }
+            else {
+                fetch(`/todoify/todos/todo/${todoId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        todoId: todoId,
+                    }),
+                })
+                    .then(res => {
+                        if (res.ok) {
+                            location.reload();
+                            alert("Todo updated successfully.");
+                        } else {
+                            alert("Failed to update the todo.");
+                        }
+                    })
+                    .catch(err => console.error('Error:', err));
+            }
+        })
+}
+
+function deleteTodo(form) {
+    const todoId = form.querySelector("input[name='deleteTodoId']").value;  // Select the todoId within this form
+    const title = form.querySelector("input[name='deleteTodoTitle']").value;
+    showAlert(`Are you sure you want to delete <b><u>${title}</u></b> todo?`)
+        .then(res => {
+            if (!res) {
+                return;
+            }
+            else {
+                fetch(`/todoify/todos/todo/${todoId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        todoId: todoId,
+                    }),
+                })
+                    .then(res => {
+                        if (res.ok) {
+                            location.reload();
+                            alert("Todo deleted successfully.");
+                        } else {
+                            alert("Failed to delete the todo.");
+                        }
+                    })
+                    .catch(err => console.error('Error:', err));
+            }
+        })
+}
+
+
