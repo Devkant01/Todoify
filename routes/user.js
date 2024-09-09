@@ -5,7 +5,7 @@ const { checkUser } = require("../controllers/checkUser");
 const { signupAuth, loginAuth } = require("../middleware/userAuth");
 const router = express.Router();
 
-router.get('/', (req, res) => { res.send("Hello users"); });
+router.get('/', (req, res) => { res.send("Hello users, go for login/signup"); });
 
 router.post('/login', loginValidation, checkUser, loginAuth);
 
