@@ -68,12 +68,6 @@ function updateTodoStatus(form) {
             else {
                 fetch(`/todoify/todos/todo/${todoId}`, {
                     method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        todoId: todoId,
-                    }),
                 })
                     .then(res => {
                         if (res.ok) {
@@ -98,13 +92,7 @@ function deleteTodo(form) {
             }
             else {
                 fetch(`/todoify/todos/todo/${todoId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        todoId: todoId,
-                    }),
+                    method: 'DELETE'
                 })
                     .then(res => {
                         if (res.ok) {

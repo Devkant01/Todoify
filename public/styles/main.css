@@ -26,7 +26,7 @@ html {
 
 .outside {
     margin-top: 10px;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     cursor: pointer;
@@ -153,18 +153,23 @@ main {
 }
 
 .container .title {
-    width: 80%;
+    width: 100%;
+    height: max-content;
+    background-color: white;
     align-self: flex-start;
     font-size: 3rem;
     font-weight: 700;
     font-family: 'Times New Roman', Times, serif;
     position: sticky;
-    top: 0;
+    top: -10px;
+    padding-block: 10px;
     margin-bottom: 40px;
+    z-index: 5;
 }
 
 main .container ul {
     width: 100%;
+    overflow: hidden;
 }
 
 main .container ul li {
@@ -304,7 +309,7 @@ main .container .showAdder {
 }
 
 .adderLayout .buttons {
-    width: 30%;
+    width: 40%;
     padding-inline: 30px;
     align-self: flex-end;
     display: flex;
@@ -312,7 +317,14 @@ main .container .showAdder {
     align-items: center;
 }
 
+@media screen and (max-width: 1200px) {
+    .adderLayout .buttons {
+        width: 50%;
+    }
+}
+
 .adderLayout .buttons button {
+    width: max-content;
     padding: 8px 12px;
     border-radius: 10px;
     border: none;
@@ -345,6 +357,17 @@ main .container .showAdder {
     .logout {
         color: white;
     }
+
+    .adderLayout .buttons {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .adderLayout .buttons {
+        width: 100%;
+        padding-inline: 10px;
+    }
 }
 
 /* custom-alert start*/
@@ -355,7 +378,7 @@ main .container .showAdder {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color:rgb(227, 68, 50);
+    background-color: rgb(227, 68, 50);
     /* Red background for alert */
     color: white;
     /* White text */
@@ -389,6 +412,7 @@ main .container .showAdder {
     margin-bottom: 10px;
     display: block;
 }
+
 /* custom-alert ends */
 
 
@@ -457,6 +481,36 @@ main .container .showAdder {
 
 #error .container button:hover {
     transform: translateY(4px);
+}
+
+@media screen and (max-width: 550px) {
+    #error .container .title {
+        font-size: clamp(6rem, 7rem, 8rem);
+    }
+
+    #error .container .description {
+        width: 90%;
+        text-align: justify;
+    }
+
+    #error .container button {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #error .container .title {
+        font-size: clamp(5rem, 5.5rem, 6rem);
+    }
+
+    #error .container .details{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    #error .container .description {
+        width: 100%;
+    }
 }
 
 /* 

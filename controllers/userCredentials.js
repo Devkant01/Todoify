@@ -7,7 +7,6 @@ async function getUserCredentials(req, res, next) {
     try {
         const token = req.session.token;
         res.locals.moment = moment; //for accessing moment library on frontend
-        console.log("Get request");
         const user = jwt.verify(token, jwt_secret_key);
         const todos = await todosModel.find({ userId: user.userId });
         const completedTodos = await todosModel.find({ userId: user.userId, completed: true });
@@ -21,9 +20,8 @@ async function getUserCredentials(req, res, next) {
             }
         });
         res.render("main", { username: user.username, count: todos.length, todos: todos, todayTodos: todayTodos, completedCount: completedTodos.length});
-        next();
     } catch (e) {
-        res.render("error", { title: "Log in again/Session Expired", statusCode: 401, message: "Your session has expired", description: "Please log in again to continue. If you encounter further issues, contact support." })
+        res.render("error", { title: "Log in/Session Expired", statusCode: 401, message: "Your session has expired", description: "Please log in again to continue. If you encounter further issues, contact support." })
     }
 }
 

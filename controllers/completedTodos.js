@@ -19,8 +19,8 @@ async function completedTodos(req, res, next) {
                 $lt: endOfDay
             }
         });
-        res.render("main", { username: user.username,count: todos.length, todos: completedTodos, todayTodos: todayTodos, completedCount: completedTodos.length });
-        next();
+        res.render("main", { username: user.username, count: todos.length, todos: completedTodos, todayTodos: todayTodos, completedCount: completedTodos.length });
+        return;
     } catch (e) {
         res.render("error", { title: "Session Expired", statusCode: 401, message: "Your session has expired", description: "Please log in again to continue. If you encounter further issues, contact support." })
     }

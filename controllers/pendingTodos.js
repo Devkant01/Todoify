@@ -21,7 +21,7 @@ async function pendingTodos(req, res, next) {
             }
         });
         res.render("main", { username: user.username, count: todos.length, todos: pendingTodos, todayTodos: todayTodos, completedCount: completedTodos.length });
-        next();
+        return;
     } catch (e) {
         res.render("error", { title: "Session Expired", statusCode: 401, message: "Your session has expired", description: "Please log in again to continue. If you encounter further issues, contact support." })
     }

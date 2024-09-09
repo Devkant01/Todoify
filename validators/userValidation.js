@@ -26,7 +26,6 @@ const loginSchema = zod.object({
 function loginValidation(req, res, next) {
     const { username, password } = req.body;
     try {
-        console.log(username, password);
         loginSchema.parse({ username, password });
         next();
     } catch (e) {

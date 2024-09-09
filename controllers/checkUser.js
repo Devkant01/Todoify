@@ -10,7 +10,6 @@ async function checkUser(req, res, next) {
     if (userExists.password !== password) {
         return res.render("error", { title: "Invalid Credentials", statusCode: 401, message: "Unauthorized", description: "The password you entered is incorrect. Please try again or reset your password if you've forgotten it." })
     }
-
     next();
 }
 

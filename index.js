@@ -29,8 +29,10 @@ app.get('/features', (req, res) => {
     res.render("features");
 })
 
-app.get('/forTesting', (req, res) => {
-    res.render("main");
+app.get('*', (req, res) => {
+    res.status(404).render("error", {title: "Page Not Found", statusCode: 404, message: "Oops! The page you're looking for doesn't exist.", description: "The URL you entered may be incorrect, or the page has been moved. Please check the URL or go back to the homepage."
+    });
+
 })
 
 
