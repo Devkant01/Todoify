@@ -2,19 +2,6 @@
 
 Todoify is a project aimed at helping users manage their tasks and stay organized. It provides a user-friendly interface for creating, tracking, and completing tasks efficiently. 
 
-## Features
-
-- Task creation: Easily create new tasks with a title, description, and due date.
-- Task tracking: Keep track of the status of each task, whether it's pending, in progress, or completed.
-- Task prioritization: Assign priority levels to tasks to ensure important tasks are given the necessary attention.
-- Task categorization: Organize tasks into different categories or tags for better organization and filtering.
-- Task reminders: Set reminders for important tasks to ensure they are not forgotten.
-- Task collaboration: Share tasks with team members or collaborators for seamless collaboration and task management.
-
-## Tools and Technologies Used
-
-
-Todoify is a project aimed at helping users manage their tasks and stay organized. It provides a user-friendly interface for creating, tracking, and completing tasks efficiently. 
 
 ## Features
 
@@ -23,14 +10,13 @@ Todoify is a project aimed at helping users manage their tasks and stay organize
 - Task prioritization: Assign priority levels to tasks to ensure important tasks are given the necessary attention.
 - Task categorization: Organize tasks into different categories or tags for better organization and filtering.
 - Task reminders: Set reminders for important tasks to ensure they are not forgotten.
-- Task collaboration: Share tasks with team members or collaborators for seamless collaboration and task management.
 
 ## Tools and Technologies Used
 
 - Frontend: EJS, CSS, JavaScript
 - Backend: Node.js, Express.js
 - Database: MongoDB
-- Libraries: JWT, Zod, Static Files
+- Libraries: JWT, Zod, Static Files, moment, express-session
 - Version Control: Git, GitHub
 
 ## Installation
