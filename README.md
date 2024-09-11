@@ -24,10 +24,15 @@ Todoify is a project aimed at helping users manage their tasks and stay organize
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/todoify.git`
-2. Create a .env file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, and SESSION_SECRET, and assign values to each.
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
+1. **Clone the repository:**
+  `git clone https://github.com/your-username/todoify.git`
+2. **Navigate to the project directory:**
+  `cd todoify`
+3. Create a **.env** file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, and SESSION_SECRET, and assign values to each.
+4. **Install dependencies:**
+  `npm install`
+5. **Start the development server:**
+   `npm start`
 
 ## Usage
 
