@@ -5,29 +5,34 @@ Todoify is a project aimed at helping users manage their tasks and stay organize
 
 ## Features
 
-- User authentication: Secure access to the application with user login and registration functionality.
-- Authorization: Ensure that users can only access or modify their own tasks by enforcing proper access control mechanisms.
-- Task creation: Easily create new tasks with a title, description, and due date.
-- Task tracking: Keep track of the status of each task, whether it's pending, in progress, or completed.
-- Task prioritization: Assign priority levels to tasks to ensure important tasks are given the necessary attention.
-- Task categorization: Organize tasks into different categories or tags for better organization and filtering.
-- Error handling: Ensure smooth operation by providing user-friendly error messages and handling edge cases, such as invalid inputs or server issues.
-- Task search and filter: Quickly search and filter tasks based on status or category for easier task management.
+- **User authentication**: Secure access to the application with user login and registration functionality.
+- **Authorization**: Ensure that users can only access or modify their own tasks by enforcing proper access control mechanisms.
+- **Task creation**: Easily create new tasks with a title, description, and due date.
+- **Task tracking**: Keep track of the status of each task, whether it's pending, in progress, or completed.
+- **Task prioritization**: Assign priority levels to tasks to ensure important tasks are given the necessary attention.
+- **Task categorization**: Organize tasks into different categories or tags for better organization and filtering.
+- **Error handling**: Ensure smooth operation by providing user-friendly error messages and handling edge cases, such as invalid inputs or server issues.
+- **Task search and filter**: Quickly search and filter tasks based on status or category for easier task management.
 
 ## Tools and Technologies Used
 
-- Frontend: EJS, CSS, JavaScript
-- Backend: Node.js, Express.js
-- Database: MongoDB
-- Libraries: JWT, Zod, Static Files, moment, express-session
-- Version Control: Git, GitHub
+- **Frontend**: EJS, CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Libraries**: JWT, Zod, Static Files, moment, express-session
+- **Version Control**: Git, GitHub
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/todoify.git`
-2. Create a .env file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, and SESSION_SECRET, and assign values to each.
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
+1. **Clone the repository:**
+  `git clone https://github.com/your-username/todoify.git`
+2. **Navigate to the project directory:**
+  `cd todoify`
+3. Create a **.env** file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, and SESSION_SECRET, and assign values to each.
+4. **Install dependencies:**
+  `npm install`
+5. **Start the development server:**
+   `npm start`
 
 ## Usage
 
