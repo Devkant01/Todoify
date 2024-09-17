@@ -517,6 +517,12 @@ main .container .showAdder {
     #error .container .description {
         width: 100%;
     }
+
+    .noTodoFound {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-block: 2px;
+}
 }
 
 /* 
