@@ -185,7 +185,7 @@ main .container ul li {
 
 .noTodoFound {
     width: 100%;
-    font-size: 3rem;
+    font-size: 1rem;
     font-weight: 700;
     color: gray;
     text-align: center;
