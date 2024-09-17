@@ -243,7 +243,7 @@ main .container ul li .todo_container .todo_created_date {
 main .container ul li .toDelete {
     position: relative;
     top: -10px;
-    opacity: 0;
+    opacity: 0.2;
     transition: all 0.3s;
 }
 
