@@ -5,6 +5,7 @@ const todosSchema = zod.object({
     description: zod.string().min(0)
 })
 
+// Middleware to validate the input for creating a new todo
 async function todosValidation(req, res, next) {
     const { title, description } = req.body;
     try {

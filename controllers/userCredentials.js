@@ -11,8 +11,8 @@ async function getUserCredentials(req, res, next) {
         const todos = await todosModel.find({ userId: user.userId });
         const completedTodos = await todosModel.find({ userId: user.userId, completed: true });
         //fetching todays todos
-        const startOfDay = moment().startOf('day').toDate(); // Start of today
-        const endOfDay = moment().endOf('day').toDate();     // End of today
+        const startOfDay = moment().startOf('day').toDate(); 
+        const endOfDay = moment().endOf('day').toDate();     
         const todayTodos = await todosModel.find({userId: user.userId,
             createdOn: {
                 $gte: startOfDay,

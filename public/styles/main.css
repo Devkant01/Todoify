@@ -175,6 +175,7 @@ main .container ul {
 main .container ul li {
     width: 70%;
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
@@ -241,8 +242,9 @@ main .container ul li .todo_container .todo_created_date {
 }
 
 main .container ul li .toDelete {
-    position: relative;
-    top: -10px;
+    position: absolute;
+    top: 70%;
+    right: 0;
     opacity: 0.2;
     transition: all 0.3s;
 }
@@ -347,6 +349,10 @@ main .container .showAdder {
 @media screen and (max-width: 990px) {
     #sidebar {
         background-color: rgba(227, 68, 50, 0.8);
+        color: white;
+    }
+
+    .controller.inside {
         color: white;
     }
 

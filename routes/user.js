@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => { res.send("Hello users, go for login/signup"); });
 
+// Route to get all users
 router.get('/allusers', getAllUsers);
 
 router.post('/login', loginValidation, checkUser, loginAuth);

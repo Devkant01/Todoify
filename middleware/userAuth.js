@@ -15,6 +15,7 @@ async function signupAuth(req, res, next) {
     }
 }
 
+// Middleware to authenticate the user login
 async function loginAuth(req, res, next) {
     try {
         const { username, password } = req.body;

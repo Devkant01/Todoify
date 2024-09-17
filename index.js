@@ -22,8 +22,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use('/todoify', rootRouter);
 
-// path for login todoify/user/login
-// path for signup todoify/user/signup
 app.get('/', (req, res) => {
     res.render("home");
 })
