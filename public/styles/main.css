@@ -368,6 +368,12 @@ main .container .showAdder {
         width: 100%;
         padding-inline: 10px;
     }
+
+    .noTodoFound {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-block: 12px;
+}
 }
 
 /* custom-alert start*/
