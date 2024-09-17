@@ -185,7 +185,7 @@ main .container ul li {
 
 .noTodoFound {
     width: 100%;
-    font-size: 1rem;
+    font-size: 3rem;
     font-weight: 700;
     color: gray;
     text-align: center;
@@ -368,12 +368,6 @@ main .container .showAdder {
         width: 100%;
         padding-inline: 10px;
     }
-
-    .noTodoFound {
-    font-size: 1.3rem;
-    font-weight: 500;
-    padding-block: 12px;
-}
 }
 
 /* custom-alert start*/
@@ -517,12 +511,6 @@ main .container .showAdder {
     #error .container .description {
         width: 100%;
     }
-
-    .noTodoFound {
-    font-size: 1rem;
-    font-weight: 400;
-    padding-block: 2px;
-}
 }
 
 /* 
