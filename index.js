@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const session = require("express-session");
 require("dotenv").config();
 
@@ -11,12 +12,14 @@ const port = 3000;
 app.use(session({
     secret: session_secret,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { maxAge: 60 * 60 * 1000 }
 }))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use('/todoify', rootRouter);
 
 // path for login todoify/user/login
