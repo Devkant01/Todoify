@@ -1,8 +1,7 @@
 const express = require("express");
 const { loginValidation, signupValidation } = require("../validators/userValidation");
 const { createUser } = require("../controllers/createUser");
-const { checkUser } = require("../controllers/checkUser");
-const { getAllUsers } = require("../controllers/getAllUsers");
+const { checkUser, getAllUsers } = require("../controllers/checkUser");
 const { signupAuth, loginAuth } = require("../middleware/userAuth");
 const router = express.Router();
 
