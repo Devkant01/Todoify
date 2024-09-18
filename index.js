@@ -14,7 +14,8 @@ app.use(session({
     secret: session_secret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, maxAge: 60 * 60 * 1000 }
+    cookie: { secure: process.env.NODE_ENV === 'production',
+             maxAge: 60 * 60 * 1000 }
 }))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
