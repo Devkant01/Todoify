@@ -9,12 +9,12 @@ const { session_secret } = require("./config/config")
 const app = express();
 const port = 3000;
 
-app.enable('trust proxy')
+app.set('trust proxy', 1);
 app.use(session({
     secret: session_secret,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 }
+    cookie: { secure: false, maxAge: 60 * 60 * 1000 }
 }))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
