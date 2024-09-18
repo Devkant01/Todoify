@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => { res.send("Add some todos"); });
 
-router.post('/todo', todosValidation, addTodo, todosAdded);
+router.post('/todo', todosValidation, todosAdded, addTodo);
 router.get('/completed', completedTodos);
 router.get('/pending', pendingTodos);
 router.put('/todo/:id', updateTodo);
