@@ -8,13 +8,10 @@ async function getUserCredentials(req, res, next) {
     try {
         // const token = req.session.token; //not using express-session anymore
         const { token } = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
-        console.log("checkpoint-1", token);
         res.locals.moment = moment; //for accessing moment library on frontend
         const user = jwt.verify(token, jwt_secret_key);
         const todos = await todosModel.find({ userId: user.userId });
-        console.log("checkpoint-2");
         const completedTodos = await todosModel.find({ userId: user.userId, completed: true });
-        console.log("checkpoint-3");
         //fetching todays todos
         const startOfDay = moment().startOf('day').toDate();
         const endOfDay = moment().endOf('day').toDate();
@@ -25,7 +22,6 @@ async function getUserCredentials(req, res, next) {
                 $lt: endOfDay
             }
         });
-        console.log("checkpoint-4");
         res.render("main", { username: user.username, count: todos.length, todos: todos, todayTodos: todayTodos, completedCount: completedTodos.length });
     } catch (e) {
         res.render("error", { title: "Log in/Session Expired", statusCode: 401, message: "Your session has expired", description: "Please log in again to continue. If you encounter further issues, contact support." })
