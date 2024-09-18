@@ -9,7 +9,7 @@ const { session_secret } = require("./config/config")
 const app = express();
 const port = 3000;
 
-// app.set('trust proxy', 1);
+app.set('trust proxy', 1);
 app.use(session({
     secret: session_secret,
     resave: false,
