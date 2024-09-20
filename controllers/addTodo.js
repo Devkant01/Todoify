@@ -14,7 +14,6 @@ async function addTodo(req, res, next) {
             title,
             description
         });
-        todo.save();
         next();
     } catch (e) {
         res.render("error", { title: "Invalid token", statusCode: 400, message: "Invalid token", description: "Please log in again to continue" });
