@@ -6,8 +6,8 @@ const { adminModel } = require("../models/admin");
 async function addTodo(req, res, next) {
     try {
         const { title, description } = req.body;
-        // const token = req.session.token; //not using express-session anymore
-        const { token } = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
+        const token = req.session.token; //not using express-session anymore
+        // const { token } = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
         const user = jwt.verify(token, jwt_secret_key);
         const todo = await todosModel.create({
             userId: user.userId,
