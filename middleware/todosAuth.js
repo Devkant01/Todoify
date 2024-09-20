@@ -7,8 +7,8 @@ const { route } = require("../routes");
 async function todosAdded(req, res, next) {
     try {
         const title = req.body.title;
-        // const token = req.session.token; //not using express-session
-        const token = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
+        const token = req.session.token; //not using express-session
+        // const token = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
         const user = jwt.verify(token, jwt_secret_key);
         await todosModel.findOne({ userId: user.userId, title });
         res.redirect("/todoify");
