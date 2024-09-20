@@ -6,8 +6,8 @@ const { adminModel } = require("../models/admin");
 
 async function todayTodos(req, res, next) {
     try {
-        // const token = req.session.token; //not using express-session anymore
-        const { token } = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
+        const token = req.session.token; //not using express-session anymore
+        // const { token } = await adminModel.findOne({ admin: "dev" }, { token: 1, _id: 0 });
         res.locals.moment = moment; //for accessing moment library on frontend
         const user = jwt.verify(token, jwt_secret_key);
         const todos = await todosModel.find({ userId: user.userId });
