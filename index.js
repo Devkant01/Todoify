@@ -1,17 +1,17 @@
 
 const express = require("express");
 const path = require("path");
-// const session = require("express-session");
+const session = require("express-session");
 require("dotenv").config();
 
 const rootRouter = require("./routes/index");
-// const { session_secret } = require("./config/config")
+const { session_secret } = require("./config/config")
 
 const app = express();
 const port = 3000;
 
 
-/*app.set('trust proxy', 1);
+app.set('trust proxy', 1);
 app.use(session({
     secret: session_secret,
     resave: false,
@@ -19,7 +19,6 @@ app.use(session({
     cookie: { secure: process.env.NODE_ENV === 'production', //add NODE_ENV=development to .env file
              maxAge: 60 * 60 * 1000 }
 }))
-*/
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
