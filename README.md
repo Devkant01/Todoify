@@ -28,7 +28,7 @@ Todoify is a project aimed at helping users manage their tasks and stay organize
   `git clone https://github.com/your-username/todoify.git`
 2. **Navigate to the project directory:**
   `cd todoify`
-3. Create a **.env** file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, and SESSION_SECRET, and assign values to each.
+3. Create a **.env** file with DATABASE (MongoDB localhost URL), JWT_SECRET_KEY, SESSION_SECRET, and NODE_ENV, and assign values to each.
 4. **Install dependencies:**
   `npm install`
 5. **Start the development server:**

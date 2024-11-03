@@ -98,3 +98,11 @@ button:hover {
         padding: 12px 8px;
     }
 }
+
+@media only screen and (max-width: 450px) {
+
+    .description h1 {
+        font-size: 1.8rem;
+    }
+    
+}
