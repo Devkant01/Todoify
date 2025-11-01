@@ -1,10 +1,11 @@
-
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 
 const rootRouter = require("./routes/index");
+const { db_connection } = require("./config/config");
 const { session_secret } = require("./config/config")
 
 const app = express();
@@ -16,6 +17,10 @@ app.use(session({
     secret: session_secret,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: db_connection,
+        ttl: 24 * 60 * 60 // 1 day
+    }),
     cookie: { secure: process.env.NODE_ENV === 'production', //add NODE_ENV=development to .env file
              maxAge: 60 * 60 * 1000 }
 }))
@@ -48,10 +53,10 @@ app.get('*', (req, res) => {
 })
 
 //no need for vercel
-// app.listen(port, () => {
-//     console.log(`Server is active on http://localhost:${port}`);
-//     console.log(`wait for the database to connect...`);
-// })
+app.listen(port, () => {
+    console.log(`Server is active on http://localhost:${port}`);
+    console.log(`wait for the database to connect...`);
+})
 
 module.exports = app;
 
