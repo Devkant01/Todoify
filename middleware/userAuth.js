@@ -9,6 +9,7 @@ async function signupAuth(req, res, next) {
         const user = await userModel.findOne({ username });
         const token = jwt.sign({ userId: user._id, username }, jwt_secret_key, {expiresIn: '1h'});
         req.session.token = token; //for development: working but creating problem on production
+        res.session.user = username;
         //storing jwt token in admin-collection
         /*const checkUser = await adminModel.findOne({ admin: "dev" });
         if (checkUser) {
@@ -37,6 +38,7 @@ async function loginAuth(req, res, next) {
         const user = await userModel.findOne({ username });
         const token = jwt.sign({ userId: user._id, username }, jwt_secret_key, { expiresIn: '1h' });
         req.session.token = token; //for development: working but creating problem on production
+        req.session.user = username;
         //storing jwt token in admin-collection
         /*const checkUser = await adminModel.findOne({ admin: "dev" });
         if (checkUser) {

@@ -20,6 +20,11 @@ app.use(session({
              maxAge: 60 * 60 * 1000 }
 }))
 
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || req.user || undefined;
+    next();
+});
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
@@ -28,6 +33,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use('/todoify', rootRouter);
 
 app.get('/', (req, res) => {
+    // req.session.token = null;
     res.render("home");
 })
 
@@ -43,7 +49,8 @@ app.get('*', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Server is active on localhost:${port}`);
+    console.log(`Server is active on http://localhost:${port}`);
+    console.log(`wait for the database to connect...`);
 })
 
 module.exports = app;

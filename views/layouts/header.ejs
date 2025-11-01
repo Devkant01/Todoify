@@ -23,8 +23,12 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/features">Features</a></li>
                 <div class="separator"></div>
-                <li><a onclick="loginFun()">Log in</a></li>
-                <li class="signup"><a onclick="signupFun()">Star for free</a></li>
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <li><a href="/todoify">Dashboard</a></li>
+                <% } else { %>
+                    <li><a onclick="loginFun()">Log in</a></li>
+                    <li class="signup"><a onclick="signupFun()">Start for free</a></li>
+                <% } %>
             </ul>
         </nav>
     </header>
