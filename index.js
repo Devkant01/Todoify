@@ -47,11 +47,11 @@ app.get('*', (req, res) => {
 
 })
 
-
-app.listen(port, () => {
-    console.log(`Server is active on http://localhost:${port}`);
-    console.log(`wait for the database to connect...`);
-})
+//no need for vercel
+// app.listen(port, () => {
+//     console.log(`Server is active on http://localhost:${port}`);
+//     console.log(`wait for the database to connect...`);
+// })
 
 module.exports = app;
 
