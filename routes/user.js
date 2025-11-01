@@ -1,11 +1,14 @@
 const express = require("express");
 const { loginValidation, signupValidation } = require("../validators/userValidation");
 const { createUser } = require("../controllers/createUser");
-const { checkUser } = require("../controllers/checkUser");
+const { checkUser, getAllUsers } = require("../controllers/checkUser");
 const { signupAuth, loginAuth } = require("../middleware/userAuth");
 const router = express.Router();
 
-router.get('/', (req, res) => { res.send("Hello users"); });
+router.get('/', (req, res) => { res.send("Hello users, go for login/signup"); });
+
+// Route to get all users
+router.get('/allusers', getAllUsers);
 
 router.post('/login', loginValidation, checkUser, loginAuth);
 

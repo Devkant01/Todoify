@@ -139,7 +139,8 @@
 
 
  .input-box input:focus~label,
- .input-box input:valid~label {
+ .input-box input[type="text"]:valid~label, 
+ .input-box input[type="password"]:valid~label {
      top: -5px;
      color: var(--lightBlue);
  }

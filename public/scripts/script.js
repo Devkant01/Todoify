@@ -2,6 +2,7 @@ const wrapper = document.querySelector(".wrapper");
 const login = document.querySelector(".login");
 const register = document.querySelector(".register");
 const cross = document.getElementsByClassName("cross");
+const email = document.getElementById("email");
 var currentRoute;
 
 cross[0].addEventListener('click', (e) => {
@@ -38,3 +39,21 @@ function backToCalled() {
     console.log(currentRoute);
     history.pushState(null, null , currentRoute);
 }
+
+// for email
+//base condition
+if (email.value !== "") {
+    document.querySelector(".emailLabel").style.top = "-5px";
+    document.querySelector(".emailLabel").style.color = `#17a`;
+}
+
+email.addEventListener('input', () => {
+    console.log(email.validationMessage);
+    if (email.value !== "") {
+        document.querySelector(".emailLabel").style.top = "-5px";
+        document.querySelector(".emailLabel").style.color = `#17a`;
+    } else {
+        document.querySelector(".emailLabel").style.top = "50%";
+        document.querySelector(".emailLabel").style.color = `#000`;
+    }
+})

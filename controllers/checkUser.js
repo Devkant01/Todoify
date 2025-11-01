@@ -13,4 +13,16 @@ async function checkUser(req, res, next) {
     next();
 }
 
-module.exports = { checkUser };
+async function getAllUsers(req, res, next) {
+    const userExists = await userModel.find({ });
+    if (!userExists) {
+        return res.render("error", { title: "User Not Found", statusCode: 404, message: "User Not Found", description: "The username you entered does not exist in our records. Please check your username or sign up for a new account." })
+    }
+    
+    return res.json({
+        userExists
+    })
+}
+
+
+module.exports = { checkUser, getAllUsers };

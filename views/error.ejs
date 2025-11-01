@@ -30,7 +30,13 @@
             <% if(typeof description !=='undefined' ){ %>
                 <div class="description"><%= description %></div>
             <%}%>
-            <button type="button"><a href="/">GO TO HOMEPAGE</a></button>
+            <button type="button"><a href="<%= (typeof route !== 'undefined' && route) ? route : '/' %>">
+                <% if(typeof btnMsg !=='undefined' ){ %>
+                    <%=btnMsg%>
+                <%}else{ %>
+                    GO TO HOMEPAGE
+                <% } %>
+            </a></button>
         </div>
     </div>
 </body>

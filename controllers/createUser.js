@@ -11,7 +11,6 @@ async function createUser(req, res, next) {
         email,
         password
     })
-    create.save();
     next();
 }
 
