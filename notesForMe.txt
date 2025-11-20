@@ -1,0 +1,23 @@
+When I was building my Express + EJS website, I used the express-session package to store user data (like req.session.user and req.session.jwt) so that users remain logged in across pages.
+This worked perfectly on localhost, because locally, Node.js runs continuously and keeps the session data in memory.
+However, when deploying to Vercel, I faced a problem:
+
+Vercel uses serverless functions, which means each request runs on a new isolated instance of the server.
+So once a request ends, all in-memory data (like sessions) is lost.
+
+That meant:
+User would log in → session created ✅
+Next page refresh → session gone ❌
+Result → user automatically logged out on every request.
+
+So the issue was: My session data wasn’t persisting across server restarts or new requests.
+
+The Solution — connect-mongo
+To fix this, I installed and used the connect-mongo library.
+connect-mongo acts as a session store for express-session.
+Instead of saving sessions in temporary server memory, it saves them inside a MongoDB database — which is persistent and accessible from any server instance.
+
+Here’s what happens:
+Every time a new session is created, its data (like req.session.user) is automatically saved to MongoDB.
+When a new request comes in, Express fetches that session from MongoDB using the cookie’s session ID.
+Even if the server restarts or a new Vercel function runs, the session still exists in MongoDB — so the user stays logged in.
